@@ -2,6 +2,6 @@ import router from '@adonisjs/core/services/router'
 
 router.on('/').render('pages/home')
 
-router.get('/teste', async (ctx) => {
-  return 'Mas que nada, um samba como esse...'
+router.get('/movies', async (ctx) => {
+  return ctx.view.render('pages/movies', { movie: 'TESTE Meu filme incrível!' })
 })
