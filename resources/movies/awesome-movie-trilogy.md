@@ -1,4 +1,7 @@
-# Awesome Movie The Trilogy!
+---
+title: "Awesome Movie: The Trilogy!"
+summary: Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+---
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, ullam cumque rem dolorem amet
 dicta consectetur numquam nostrum atque perspiciatis perferendis minima aperiam! Deleniti ratione
