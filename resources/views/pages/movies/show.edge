@@ -17,10 +17,9 @@
       <a href="{{ route('movies.show', { slug: 'awesome-movie-trilogy' }) }}">Trilogy Movies</a>
     </nav>
 
+    <h1>{{ movie.title }}</h1>
 
-    <h1>{{ md.frontmatter.title }}</h1>
-
-    {{{ movie }}}
+    {{{ movie.abstract }}}
 
     {{--  {{ inspect(movie) }}  --}}
   </div>
