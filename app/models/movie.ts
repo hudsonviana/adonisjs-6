@@ -1,3 +1,4 @@
+import cache from '#services/cache_service'
 import MovieService from '#services/movie_service'
 import { toHtml } from '@dimerapp/markdown/utils'
 
@@ -20,6 +21,11 @@ export default class Movie {
   }
 
   static async find(slug: string) {
+    if (cache.has(slug)) {
+      console.log(`Cache Hit: ${slug}`)
+      return cache.get(slug)
+    }
+
     const md = await MovieService.read(slug)
     const movie = new Movie()
 
@@ -27,6 +33,8 @@ export default class Movie {
     movie.summary = md.frontmatter.summary
     movie.slug = slug
     movie.abstract = toHtml(md).contents
+
+    cache.set(slug, movie)
 
     return movie
   }
