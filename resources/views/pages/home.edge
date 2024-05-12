@@ -9,22 +9,24 @@
 </head>
 <body>
   <div class="max-w-3xl mx-auto mt-6">
-    <nav>
-      <a href="{{ route('movies.show', { slug: 'my-awesome-movie' }) }}">Awesome Movies</a>
-      <a href="{{ route('movies.show', { slug: 'another-awesome-movie' }) }}">Another Movies</a>
-      <a href="{{ route('movies.show', { slug: 'awesome-movie-trilogy' }) }}">Trilogy Movies</a>
-    </nav>
+    
+    @include('partials/nav')
 
     <h1> It Works! </h1>
 
-    <ul>
+    <ul class="flex flex-col gap-4">
       @each(movie in movies)
         <li>
-          <a href="{{ route('movies.show', { slug: movie.slug }) }}">
+          <a href="{{ route('movies.show', { slug: movie.slug }) }}" class="font-bold">
             {{ movie.title }}
           </a>
+          
+
+          <p class="text-slate-500">
+            {{ truncate(movie.summary, 50, { completeWords: true }) }}  
+          </p>
         </li>
-      @endeach
+      @end
     </ul>
 
     {{--  {{ inspect(slugs) }}  --}}
