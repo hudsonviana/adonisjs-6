@@ -1,21 +1,31 @@
-// https://www.youtube.com/watch?v=SdB5SbOFc4I&list=PL9dIWiKCV571IuTdHRzUcgQ5gYYtDYFWj&index=18
+import redis from '@adonisjs/redis/services/main'
+
 class CacheService {
-  #store: Record<string, any> = {}
+  // #store: Record<string, any> = {}
 
-  has(key: string) {
-    return key in this.#store
+  async has(...keys: string[]) {
+    return redis.exists(keys)
+    // return key in this.#store
   }
 
-  get(key: string) {
-    return this.#store[key]
+  async get(key: string) {
+    const value = await redis.get(key)
+    return value && JSON.parse(value)
+    // return this.#store[key]
   }
 
-  set(key: string, value: any) {
-    this.#store[key] = value
+  async set(key: string, value: any) {
+    return redis.set(key, JSON.stringify(value))
+    // this.#store[key] = value
   }
 
-  delete(key: string) {
-    delete this.#store[key]
+  async delete(...keys: string[]) {
+    redis.del(keys)
+    // delete this.#store[key]
+  }
+
+  async flushDb() {
+    return redis.flushdb()
   }
 }
 
