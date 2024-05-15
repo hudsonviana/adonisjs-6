@@ -1,6 +1,7 @@
-// import Movie from '#models/movie'
 import edge from 'edge.js'
 
-// edge.global('Movie', Movie)
+import { edgeIconify, addCollection } from 'edge-iconify'
+import { icons as phIcons } from '@iconify-json/ph'
 
-edge.global('globalExample', 'teste global examle')
+addCollection(phIcons)
+edge.use(edgeIconify)
