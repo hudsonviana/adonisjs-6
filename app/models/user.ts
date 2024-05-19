@@ -21,7 +21,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare fullName: string | null
 
   @column()
-  declare avatarUrl: string
+  declare avatarUrl: string | null
 
   @column()
   declare email: string
@@ -33,5 +33,5 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
+  declare updatedAt: DateTime
 }
