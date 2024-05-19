@@ -10,8 +10,9 @@ export default class extends BaseSchema {
       table.string('last_name', 100).notNullable()
       table.string('headshot_url').notNullable().defaultTo('')
 
-      table.timestamp('created_at').notNullable()
-      table.timestamp('updated_at').notNullable()
+      table.timestamps(true, true)
+      // table.timestamp('created_at').notNullable()
+      // table.timestamp('updated_at').notNullable()
     })
   }
 

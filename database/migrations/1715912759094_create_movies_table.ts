@@ -16,8 +16,9 @@ export default class extends BaseSchema {
       table.string('poster_url').notNullable().defaultTo('')
 
       table.timestamp('released_at').nullable()
-      table.timestamp('created_at').notNullable()
-      table.timestamp('updated_at').notNullable()
+      table.timestamps(true, true)
+      // table.timestamp('created_at').notNullable()
+      // table.timestamp('updated_at').notNullable()
     })
   }
 

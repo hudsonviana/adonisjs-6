@@ -10,8 +10,9 @@ export default class extends BaseSchema {
       table.integer('movie_id').unsigned().references('movies.id').notNullable()
       table.string('character', 200).notNullable().defaultTo('')
 
-      table.timestamp('created_at').notNullable()
-      table.timestamp('updated_at').notNullable()
+      table.timestamps(true, true)
+      // table.timestamp('created_at').notNullable()
+      // table.timestamp('updated_at').notNullable()
     })
   }
 
