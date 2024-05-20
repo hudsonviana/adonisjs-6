@@ -1,3 +1,4 @@
+import Roles from '#enums/roles'
 import { BaseSchema } from '@adonisjs/lucid/schema'
 
 export default class extends BaseSchema {
@@ -12,7 +13,7 @@ export default class extends BaseSchema {
         .references('id')
         .inTable('roles')
         .notNullable()
-        .defaultTo(1)
+        .defaultTo(Roles.USER)
       table.string('full_name').nullable()
       table.string('avatar_url').nullable()
       table.string('email', 254).notNullable().unique()
