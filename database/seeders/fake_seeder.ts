@@ -9,8 +9,8 @@ export default class extends BaseSeeder {
   async run() {
     // Write your database queries inside the run method
 
-    await CineastFactory.createMany(10)
-    await MovieFactory.createMany(3)
-    await UserFactory.createMany(5)
+    await CineastFactory.createMany(10);
+    await MovieFactory.createMany(3);
+    await UserFactory.createMany(5);
   }
 }

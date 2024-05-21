@@ -12,4 +12,4 @@ export const UserFactory = factory
       password: faker.internet.password(),
     }
   })
-  .build()
+  .build() 
